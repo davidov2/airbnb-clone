@@ -19,7 +19,7 @@ gem 'devise'
 gem "geocoder"
 gem 'cloudinary'
 gem 'carrierwave'
-
+gem 'omniauth-facebook'
 
 gem "coffee-rails"
 gem "gmaps4rails"
@@ -36,6 +36,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'spring'
   gem 'faker'
+  gem "letter_opener"
 end
 
 group :production do

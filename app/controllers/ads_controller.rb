@@ -6,6 +6,11 @@ class AdsController < ApplicationController
 
  def show
    find_ad
+   @markers = Gmaps4rails.build_markers(@ad) do |ad, marker|
+      marker.lat ad.latitude
+      marker.lng ad.longitude
+    end
+
  end
 
   def new

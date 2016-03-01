@@ -20,12 +20,13 @@ Ad.destroy_all
   user.save
 
   3.times do
-    address = Faker::Address.street_address + ', France'
+    address = Faker::Address.street_address +', France'
     annonce = Ad.create(description: Faker::Lorem.paragraph, price: Faker::Number.number(2), flight_date: Faker::Date.between(2.days.ago, Date.today), flight_time: Faker::Number.number(2), address: address)
     annonce.user = user
     image_url = Faker::Avatar.image(('Vol depuis ' + Faker::Address.city).parameterize, "300x150", "jpg")
     annonce.remote_photo_url = image_url
     annonce.save!
+    puts address
   end
 end
 
