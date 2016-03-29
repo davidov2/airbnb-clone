@@ -4,28 +4,29 @@
     <div class="container">
     <div class="row">
 
-      </div>
-
-           <h2 class = "text-center">Formulaire d'inscription</h2>
-            <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-              <%= f.error_notification %>
-              <div class="col-xs-12 col-sm-4">
-                  <%= image_tag "logo2.png", class: "card"%>
-               </div>
 
 
-              <div class="col-xs-12 col-sm-4">
-                <div class="form-inputs">
-                  <%= f.input :email, required: true, autofocus: true %>
-                  <%= f.input :password, required: true, hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length) %>
-                  <%= f.input :password_confirmation, required: true %>
-                </div>
-                  <div class="form-actions class-center text-center">
-                    <%= f.button :submit, "S'inscrire" %>
+
+
+              <div class="col-xs-12 col-md-6 col-md-offset-3">
+               <div class="wrapper-registration">
+                <h2 class = "text-center">Créez votre compte !</h2>
+                  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                  <%= f.error_notification %>
+                  <div class="form-inputs">
+                    <%= f.input :email, required: true, autofocus: true, placeholder: "email",label: false %>
+                    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), placeholder: "mot de passe", label: false%>
+                    <%= f.input :password_confirmation, required: true, placeholder: "Confirmez votre mot de passe", label: false %>
+                  </div>
+                    <div class="form-actions class-center text-center">
+                      <%= f.button :submit, "S'inscrire", class: "btn-primary" %>
+                    </div>
+                     <% end %>
+                      <%= render "devise/shared/links" %>
                   </div>
               </div>
 
-
+</div>
 
               <div class="col-xs-12 col-sm-4">
                 <div class="card-look" >
@@ -43,9 +44,9 @@
                   <input type="hidden" name="pilot" value="0"> <!-- recuperer la valeur et savoir ou elle est recuper pour etre sauver  dans la bd -->
                 </div>
               </div>
-            <% end %>
 
-            <%= render "devise/shared/links" %>
+
+
 
     </div>
 </div>
@@ -53,7 +54,7 @@
 
     </div>
   </div>
-</div>
+
 
 
 
@@ -80,3 +81,6 @@
       });
     </script>
 <% end  %>
+
+
+

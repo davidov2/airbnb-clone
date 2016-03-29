@@ -16,18 +16,25 @@
 
             <%= link_to "Réservez dès maintenant", "#", :class => "btn btn-danger" %>
 <!--             <%= link_to "Retour à l'accueil", root_path, :class => "btn btn-danger" %> <-->      </div>
-          <div class="padded-product">
-            <%= link_to "Voir toutes les annonces", ads_path, :class => "btn btn-danger" %>
-          </div>
-          <div class="padded-product">
-            <%= link_to "Supprimer cette annonce", ad_path, method: :delete, :class => "btn btn-warning" %>
-          </div>
+
+
+
+            <% if current_user.name == @ad.user.name %>
+               <div class="padded-product">
+                <%= link_to "Modifier mon annonce", ads_path, :class => "btn btn-danger" %>
+               </div>
+              <div class="padded-product">
+                <%= link_to "Supprimer cette annonce", ad_path, method: :delete, :class => "btn btn-warning" %>
+              </div>
+            <% end %>
+
+
+
         </div>
       </div>
     </div>
   </div>
 </div>
-
 
 
 
@@ -52,7 +59,6 @@
     })
   <% end %>
  <% end %>
-
 
 
 

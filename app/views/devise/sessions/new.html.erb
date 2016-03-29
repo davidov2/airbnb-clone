@@ -1,32 +1,33 @@
 
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3 ">
 
-<div class="panel panel-default">
-  <div class="panel-body">
-  <div class="form-inputs text-center">
-      <div class="col-xs-offset-4 col-xs-5">
-    <h2 class = "text-center">Déjà client ? Connectez vous !</h2>
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="wrapper-registration">
 
-      <%= f.input :email, required: false, autofocus: true %>
-      <%= f.input :password, required: false %>
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      <h2>Se Connecter</h2>
+
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :email, required: false, autofocus: true, label: false, placeholder: "email" %>
+          <%= f.input :password, required: false, label: false, placeholder: "mot de passe" %>
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Se connecter", class: "btn btn-primary" %>
+    <br>
+</br>
 
 
-    <div class="form-actions class-center text-center">
-      <%= f.button :submit, "Je me connnecte" %>
+
+        </div>
+        <%= render "devise/shared/links" %>
+
+      <% end %>
     </div>
-  <% end %>
-
-  <%= render "devise/shared/links" %>
-      </div>
     </div>
   </div>
 </div>
 
-<!-- J'ai utilisé panel-body de bootstrap ex:
-<div class="panel panel-default">
-  <div class="panel-body">
-    Basic panel example
-  </div>
-</div>
- -->
+

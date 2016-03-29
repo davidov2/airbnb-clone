@@ -29,6 +29,12 @@
         </div>
       <% end %>
 
+      <% if current_user.pilote? %>
+       <%= link_to "Publiez une annonce", new_ad_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+      <% end %>
+
+
+
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
@@ -61,8 +67,6 @@
     <% end %>
 
 
-
-    <%= link_to "Je suis pilote", new_ad_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
 
     <!-- Button (call-to-action) -->
     <%= link_to t(".top_call_to_action", default: "Connexion"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
