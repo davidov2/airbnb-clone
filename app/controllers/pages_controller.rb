@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @ads = Ad.all[0..8]
+    ad = Ad.count
+    @ads = Ad.all.sort[ad-9..ad].reverse
   end
 end

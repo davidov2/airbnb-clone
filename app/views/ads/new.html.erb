@@ -1,20 +1,24 @@
+
 <% if user_signed_in? %>
-<h1 class="text-center">Publiez une nouvelle annonce</h1>
+
 
 <div class="padded">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-md-4">
-        <%= simple_form_for(@ad) do |f| %>
-        <%= f.input :price %>
-        <%= f.input :description %>
-        <%= f.input :flight_date %>
-        <%= f.input :photo %>
-        <%= f.input :photo_cache, as: :hidden %>
-        <%= f.input :flight_time %>
-        <%= f.input :address %>
-        <%= f.button :submit %>
-        <% end %>
+      <div class="col-xs-12">
+        <div class="wrapper-registration">
+        <h1 class="text-center">Publiez une nouvelle annonce</h1>
+          <%= simple_form_for(@ad) do |f| %>
+          <%= f.input :price, label: false, placeholder: "Prix" %>
+          <%= f.input :description, label: false, placeholder: "Exemple : Nous allons voler en pendulaire et nous survolerons les chateaux de la Loire" %>
+          <%= f.input :flight_date, label: false, placeholder: "Date du vol"  %>
+          <%= f.input :photo, label: false, placeholder: "Photo de votre ULM" %>
+          <%= f.input :photo_cache, as: :hidden %>
+          <%= f.input :flight_time, label: false, placeholder: "Durée du vol" %>
+          <%= f.input :address, label: false, placeholder: "Je vais voler à ..."  %>
+          <%= f.button :submit, value: "Qui m'aime me suive..." %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
