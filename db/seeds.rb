@@ -14,7 +14,7 @@ Ad.destroy_all
 30.times do
 
   password = Faker::Internet.password(8)
-  user = User.create!(name: Faker::Name.last_name, email: Faker::Internet.email, password: password)
+  user = User.create!(name: Faker::Name.last_name, email: Faker::Internet.email, password: password, pilote: false)
   user.picture = Faker::Avatar.image(user.name.parameterize, "50x50")
   puts user.picture
   user.save
