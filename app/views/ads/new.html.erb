@@ -1,4 +1,5 @@
 
+
 <% if user_signed_in? %>
 
 
@@ -9,8 +10,11 @@
         <div class="wrapper-registration">
         <h1 class="text-center">Publiez une nouvelle annonce</h1>
           <%= simple_form_for(@ad) do |f| %>
+          <div class="form-group">
+            <%= f.select :category, ['Multiaxe', 'Paramoteur', 'Pendulaire'], {},class: "form-control" %>
+          </div>
           <%= f.input :price, label: false, placeholder: "Prix" %>
-          <%= f.input :description, label: false, placeholder: "Exemple : Nous allons voler en pendulaire et nous survolerons les chateaux de la Loire" %>
+          <%= f.input :description, label: false, placeholder: "Exemple : Nous allons voler en pendulaire et nous survolerons les chateaux de la Loire, nous décollerons de l'aérodrome de Poitier" %>
           <%= f.input :flight_date, label: false, placeholder: "Date du vol"  %>
           <%= f.input :photo, label: false, placeholder: "Photo de votre ULM" %>
           <%= f.input :photo_cache, as: :hidden %>
@@ -29,3 +33,4 @@
   <%= link_to new_user_session_path %>
 
   <% end %>
+
