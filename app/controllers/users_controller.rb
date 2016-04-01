@@ -8,21 +8,21 @@ class UsersController < ApplicationController
    @user = User.find(params[:id])
  end
 
-  def new
-    @user = User.new
-  end
+  # def new
+  #   @user = User.new
+  # end
 
-  def create
-    @user = User.new(user_param)
-  end
-
-
+  # def create
+  #   @user = User.new(user_param)
+  # end
 
 
-  private
-  def user_param
-    params.require(:user).permit(:name, :pilote)
-  end
+
+
+  # private
+  # def user_param
+  #   params.require(:user).permit(:name, :pilote)
+  # end
 
 
 end
