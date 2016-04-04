@@ -28,6 +28,7 @@ class AdsController < ApplicationController
 
   def create
     @ad = Ad.new(ad_params)
+    binding.pry
     @ad.user = current_user
     if @ad.save
       redirect_to root_path, notice: 'Annonce crée avec succès'
@@ -70,7 +71,7 @@ class AdsController < ApplicationController
   private
 # # update et create
   def ad_params
-    params.require(:ad).permit(:description, :date, :price, :flight_date, :flight_time, :address, :photo, :photo_cache)
+    params.require(:ad).permit(:description, :date, :price, :flight_date, :flight_time, :address, :photo, :photo_cache, :category)
   end
 
   def find_ad
