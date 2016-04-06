@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :ads  do
-    collection do                      # collection => no restaurant id in URL
+    collection do                      # collection => no ads id in URL
       get 'search', to: "ads#search"  # RestaurantsController#top
     end
   end

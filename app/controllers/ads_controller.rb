@@ -2,7 +2,9 @@ class AdsController < ApplicationController
 
 
  def index
-  @ads = Ad.all
+  # @ads = Ad.all
+  # authorize @ad
+  @ads = policy_scope(Ad)
  end
 
  def show
@@ -17,9 +19,11 @@ class AdsController < ApplicationController
   def new
       #@ad = Ad.new
       #si le user est un pilote il peut faire une annonce sinon il doit s'identifier comme pilote et remplir son profil
+
     if user_signed_in? && current_user.pilote?
       #@ad = Ad.new
       @ad = current_user.ads.build
+      authorize @ad
     else
       redirect_to new_user_registration_path
     end
@@ -27,9 +31,11 @@ class AdsController < ApplicationController
   end
 
   def create
-    @ad = Ad.new(ad_params)
-    binding.pry
-    @ad.user = current_user
+    # @ad = Ad.new(ad_params)
+    # @ad.user = current_user
+    @ad = current_user.ads.build(ad_params)
+    authorize @ad
+
     if @ad.save
       redirect_to root_path, notice: 'Annonce crée avec succès'
     else
@@ -76,6 +82,7 @@ class AdsController < ApplicationController
 
   def find_ad
     @ad = Ad.find(params[:id])
+    authorize @ad
   end
 
 end
