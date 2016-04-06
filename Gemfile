@@ -24,6 +24,7 @@ gem 'omniauth-facebook'
 gem "coffee-rails"
 gem "gmaps4rails"
 gem 'devise-i18n'
+gem "pundit"
 
 
 source 'https://rails-assets.org' do

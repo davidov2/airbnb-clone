@@ -1,4 +1,8 @@
 class PagesController < ApplicationController
+
+  skip_before_action :authenticate_user!
+  skip_after_action :verify_authorized
+
   def home
     ad = Ad.count
     @ads = Ad.all.sort[ad-9..ad].reverse

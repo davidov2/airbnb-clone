@@ -18,11 +18,12 @@
 <!--             <%= link_to "Retour à l'accueil", root_path, :class => "btn btn-danger" %> <-->      </div>
 
 
-
-            <% if current_user.name == @ad.user.name %>
+              <% if policy(@ad).update? %>
                <div class="padded-product">
                 <%= link_to "Modifier mon annonce", ads_path, :class => "btn btn-danger" %>
                </div>
+              <% end %>
+             <% if policy(@ad).destroy? %>
               <div class="padded-product">
                 <%= link_to "Supprimer cette annonce", ad_path, method: :delete, :class => "btn btn-warning" %>
               </div>
