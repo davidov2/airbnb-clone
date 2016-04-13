@@ -1,4 +1,5 @@
-
+<div class="header">
+</div>
 <h1 class="text-center">Voici les détails de votre vol :</h1>
 
 <div class="padded">
@@ -6,30 +7,37 @@
     <div class="row">
       <div class="col-xs-12 col-md-6">
         <%= cl_image_tag @ad.photo, height: 300, width: 400, crop: :fill %>
+
       </div>
       <div class="col-xs-12 col-md-6">
-          <p><strong>Annonce mise en ligne par :</strong> "<%= @ad.user.name %>"</p>
-          <p><strong>Description de l'annonce :</strong><br><%= @ad.description %></p>
-          <p><strong>Prix : </strong><%= @ad.price %>€</p>
-          <p><strong>Date : </strong><%= @ad.flight_date %></p>
-          <div class="btn-group padded-product">
 
-            <%= link_to "Réservez dès maintenant", "#", :class => "btn btn-danger" %>
+        <div class="card-show card-padded">
+
+          <div class="card-picture"><p><%= cl_image_tag @ad.user.picture, :class => "avatar-xxl" %></p>
+            <p><%= @ad.user.name %></p>
+            <p>Rating</p>
+          </div>
+          <div class="date-show"><p><strong>Je te propose de voler le : </strong><%= @ad.flight_date %></p></div>
+          <div class="card-show-description"><p><%= @ad.description %></p></div>
+          <div class="price-show"><p><%= @ad.price %>€</p></div>
+          <div class="btn-group padded-product button-show ">
+
+            <%= link_to "Réservez dès maintenant", "#", :class => "btn btn-success btn-lg btn-block" %>
 <!--             <%= link_to "Retour à l'accueil", root_path, :class => "btn btn-danger" %> <-->      </div>
 
 
               <% if policy(@ad).update? %>
                <div class="padded-product">
-                <%= link_to "Modifier mon annonce", ads_path, :class => "btn btn-danger" %>
+                <%= link_to "Modifier mon annonce", ads_path, :class => "btn btn-warning" %>
                </div>
               <% end %>
              <% if policy(@ad).destroy? %>
               <div class="padded-product">
-                <%= link_to "Supprimer cette annonce", ad_path, method: :delete, :class => "btn btn-warning" %>
+                <%= link_to "Supprimer cette annonce", ad_path, method: :delete, :class => "btn btn-danger" %>
               </div>
             <% end %>
 
-
+          </div>
 
         </div>
       </div>
